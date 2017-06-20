@@ -6,17 +6,18 @@ initPRFLen = 4
 
 
 def randomcryptoint():
-    #print(numpy.iinfo(numpy.int32).max)
 
     # the value sys.maxint, which is either 231 - 1 or 263 - 1 depending on your platform.
-    #sys.maxint
-    b = numpy.random.randint(numpy.iinfo(numpy.int32).max, size=8)
+    # 查看原始function，他的亂數都小於256
+    b = numpy.random.randint(256, size=8)
 
-    #print(b)
     ans, _ = binary.varint(b)
     print(ans)
     return numpy.uint(ans)
 
-
-test = randomcryptoint()
-print(test)
+def getBit(n, N, pos):
+    val = (n & (1 << (N - pos)))
+    if val > 0:
+        return 1
+    else:
+        return 0
