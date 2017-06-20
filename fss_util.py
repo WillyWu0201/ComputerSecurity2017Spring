@@ -1,6 +1,6 @@
 import binary
 import numpy
-
+from Crypto.Cipher import AES
 initPRFLen = 4
 
 
@@ -20,3 +20,27 @@ def getBit(n, N, pos):
         return 1
     else:
         return 0
+
+
+def prf(x,aesBlocks,numBlocks, temp, out ):
+    #If request blocks greater than actual needed blocks, grow output array
+
+    # initPRFLen 4
+
+    if numBlocks > initPRFLen :
+        #out = make([]byte, numBlocks*aes.BlockSize)
+        f = []
+
+        for i in range(numBlocks*AES.block_size):
+            f.append(0)
+        print(f)
+
+    for i in range(numBlocks):
+        # get AES_k[i](x)
+        aesBlocks[i].Encrypt(temp, x)   #still go
+
+        # get AES_k[i](x) ^ x
+        for j in range(temp):
+            out[i * AES.block_size + j] = temp[j] ^ x[j]
+
+prf(2,0,5,3,3)
