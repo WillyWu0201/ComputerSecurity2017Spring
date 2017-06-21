@@ -3,6 +3,12 @@ import numpy
 from Crypto.Cipher import AES
 initPRFLen = 4
 
+import os
+import SimpleCipher
+
+from Crypto import Cipher
+#from Crypto import Random
+
 
 def randomcryptoint():
 
@@ -22,10 +28,11 @@ def getBit(n, N, pos):
         return 0
 
 
-def prf(x,aesBlocks,numBlocks, temp, out ):
+def prf(x, aesBlocks, numBlocks, temp, out ):
     #If request blocks greater than actual needed blocks, grow output array
-
     # initPRFLen 4
+
+    cipher = GetCipher(AES.MODE_CTR)
 
     if numBlocks > initPRFLen :
         #out = make([]byte, numBlocks*aes.BlockSize)
@@ -37,11 +44,20 @@ def prf(x,aesBlocks,numBlocks, temp, out ):
 
     for i in range(numBlocks):
         # get AES_k[i](x)
-        aesBlocks[i].Encrypt(temp, x)   #still go
+
+        #Encrypt encrypts the first block in src into dst.
+        #Dst and src may point at the same memory.
+        #Encrypt(dst, src []byte)
+        #aesBlocks[i].Encrypt(temp, x)   #still go    ####這行不確定
+
+        temp = SimpleCipher.encrypt(x,256)
+
 
         # get AES_k[i](x) ^ x
-        for j in range(temp):
+        for j in range(len(temp)):
             out[i * AES.block_size + j] = temp[j] ^ x[j]
+
+    return x, aesBlocks, numBlocks, temp, out
 
 def GetCipher(mode, iv='', ctr=''):
     # key (byte string)
@@ -60,4 +76,18 @@ def GetCipher(mode, iv='', ctr=''):
 
     return cipher
 
-prf(2,0,5,3,3)
+def Padding(Input):
+    return Input + (AES.block_size - len(Input) % AES.block_size) * chr(AES.block_size - len(Input) % AES.block_size)
+
+
+#str = bytearray(b'12345678')
+#print(str[0])
+
+#aa = [0,0,0,0,0,0,0,0]
+
+#for i in range(8):
+    #aa[i] = str(i+54)
+
+
+#print(aa)
+#prf(aa,0,5,aa,3)
