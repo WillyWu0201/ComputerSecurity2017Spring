@@ -43,4 +43,21 @@ def prf(x,aesBlocks,numBlocks, temp, out ):
         for j in range(temp):
             out[i * AES.block_size + j] = temp[j] ^ x[j]
 
+def GetCipher(mode, iv='', ctr=''):
+    # key (byte string)
+    # The secret key to use in the symmetric cipher. It must be 16 (AES-128), 24 (AES-192), or 32 (AES-256) bytes long.
+    key = b'_____________________32 byte key'
+
+    if (mode == AES.MODE_CTR):
+        ctr = os.urandom(16)
+        cipher = AES.new(key, mode, counter=lambda: ctr)
+
+    elif (mode == AES.MODE_CBC):
+        cipher = AES.new(key, mode, iv)
+
+    else:
+        cipher = AES.new(key, mode)
+
+    return cipher
+
 prf(2,0,5,3,3)

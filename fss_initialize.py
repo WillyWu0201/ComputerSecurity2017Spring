@@ -1,6 +1,5 @@
 import fss
 import numpy
-from numpy import ndarray
 
 def ClientInitialize(numBits):
     f = fss
@@ -30,6 +29,7 @@ def ServerInitialize(prfKeys, numBits):
     f.NumBits = numBits
     for i in range(0, 4, 1):
         f.PrfKeys[i] = prfKeys[i]
+
         # 以下註解是go語言 還沒改成python
         # // 產生加密用的block
         # block, err: = aes.NewCipher(f.PrfKeys[i])
