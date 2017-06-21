@@ -1,0 +1,119 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry} % 設定邊界
+\geometry{
+  top=1in,
+  inner=1in,
+  outer=1in,
+  bottom=1in,
+  headheight=3ex,
+  headsep=2ex
+}
+\usepackage{fontspec} % 允許設定字體
+\usepackage{xeCJK} % 引入可以設置中文字型的套件
+\setCJKmainfont{LiHei Pro} % 設定中文字型
+\setmainfont{Georgia} % 設定英文字型
+\setromanfont{Georgia} % 字型
+\setmonofont{Courier New}
+\linespread{1.2}\selectfont % 行距
+\XeTeXlinebreaklocale "zh" % 針對中文自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt % 字與字之間加入0pt至1pt的間距，確保左右對整齊
+\parindent 0em % 段落縮進
+\setlength{\parskip}{20pt} % 段落之間的距離
+
+\title{\huge 資訊安全 Final Project} % 設置標題，使用巨大字體
+\author{吳嘉瑋、江青霞、廖健智} % 設置作者
+\date{2017/05/19} % 設置日期，預設值為系統當天的日期。
+\usepackage{titling}
+\setlength{\droptitle}{-8em} % 將標題移動至頁面的上面
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{wrapfig} %引入可以在多行架構的文章中插入圖片的套件
+
+\begin{document}
+\clearpage
+\maketitle % 顯示標題，下達這個指令才會把標題印出來。
+
+% 設定多欄式頁面
+\begin{multicols}{2}
+
+\section{Introduction}
+Many online services let users query large public 
+datasets: some examples include restaurant sites, 
+product catalogs, stock quotes, and searching for 
+directions on maps. In these services, any user can 
+query the data, and the datasets themselves are not 
+sensitive. However, web services can infer a great 
+deal of identifiable and sensitive user information 
+from these queries, such as her current location, 
+political affiliation, sexual orientation, income, 
+etc.
+		
+\section{Proposed Method}
+\subsection{Splinter}
+\subsubsection{Architecture}
+There are two main principals in Splinter: the user 
+and the providers. Each provider hosts a copy of 
+the data. Providers can retrieve this data from a 
+public repository or mirror site. For a given user 
+query, all the providers have to run it on the same 
+view of the data. 
+  A user splits her query into shares, using the 
+Splinter client, and submits each share to a 
+different provider. The user can select any 
+providers of her choice that host the dataset. The 
+providers use their shares to execute the user’s 
+query over the cleartext public data, using the 
+Splinter provider library. As long as one provider 
+is honest (does not collude with others), the 
+user’s sensitive information in the original query 
+remains private. When the user receives the 
+responses from the providers, she combines them to 
+obtain the final answer to her original query.
+
+\subsubsection{Security Goals}
+The goal of Splinter is to hide sensitive
+parameters in a user’s query.Specifically, Splinter 
+lets users run parametrized queries, where both the 
+parameters and query results are hidden from 
+providers.
+
+Splinter supports a subset of the SQL language, 
+hides the information represented by the questions 
+marks and the query’s results, but the column names 
+being selected and filtered are not hidden.
+\subsubsection{Threat Model}
+
+\section{Case Studies}
+\section{Related Work}
+\section{Experimental Result}
+\section{Conclusion}
+
+\section{Reference}
+[1] E. Boyle, N. Gilboa, and Y. Ishai. Function 
+secret sharing. In Proceedings of the 34th Annual 
+International Confer- ence on the Theory and 
+Applications of Cryptographic Techniques 
+(EUROCRYPT), pages 337–367. Sofia, Bul- garia, Apr. 
+2015.
+
+[2] N. Gilboa and Y. Ishai. Distributed point 
+functions and their applications. In Proceedings of 
+the 33rd Annual International Conference on the 
+Theory and Applications of Cryptographic Techniques 
+(EUROCRYPT), pages 640– 658. Copenhagen, Denmark, 
+May 2014.
+
+
+
+\end{multicols}
+
+
+
+
+
+
+
+\end{document}
