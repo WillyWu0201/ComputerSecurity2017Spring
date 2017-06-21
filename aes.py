@@ -18,3 +18,19 @@ def aes_encrypt(data):
 def aes_decrypt(data):
     cryptor = AES.new(_KEY, AES.MODE_CBC, _IV)
     return _Unpad(cryptor.decrypt(data))
+
+# https: // golang.org / src / crypto / aes / cipher.go?s = 688:736  # L21
+# // NewCipher creates and returns a new cipher.Block.
+#   // The key argument should be the AES key,
+#   // either 16, 24, or 32 bytes to select
+#   // AES-128, AES-192, or AES-256.
+#   func NewCipher(key []byte) (cipher.Block, error) {
+#   	k := len(key)
+#   	switch k {
+#   	default:
+#   		return nil, KeySizeError(k)
+#   	case 16, 24, 32:
+#   		break
+#   	}
+#   	return newCipher(key)
+#   }
