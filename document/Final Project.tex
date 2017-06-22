@@ -155,6 +155,7 @@ Systems that compute on encrypted data, such as CryptDB [14], Mylar [15], SPORC 
 Splinter is also related to systems that use Oblivious RAM [19, 20]. ORAM allows a user to read and write data on an untrusted server without revealing her data access patterns to the server. However, ORAM cannot be easily applied into the Splinter setting. One main requirement of ORAM is that the user can only read data that she has written. In Splinter, the provider hosts a public dataset, not created by any specific user, and many users need to access the same dataset.
 \section{Experimental Result}
 \section{Conclusion}
+Splinter is a new private query system that protects sensitive parameters in SQL-like queries while scaling to realistic applications. Splinter uses and extends a recent cryptography primitive, Function Secret Sharing (FSS), allowing it to achieve up to an order of magnitude better performance compared to previous private query systems. [1] Develop protocols to execute complex queries with low computation and bandwidth. As a proof of concept, it has evaluated Splinter with three sample applications—a Yelp clone, map routing, and flight search—and showed that Splinter has low response times from 50 ms to 1.6 seconds with low hosting costs.
 
 \section{Reference}
 [1] Splinter: Practical Private Queries on Public 
