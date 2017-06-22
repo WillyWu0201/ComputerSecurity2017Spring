@@ -6,13 +6,9 @@ def ClientInitialize(numBits):
     f.NumBits = numBits
     for i in range(0, 4, 1):
         f.PrfKeys[i] = numpy.random.randint(256, size=16)
-        # 以下註解是go語言 還沒改成python
-        # // 產生加密用的block
-        # block, err: = aes.NewCipher(f.PrfKeys[i])
-        # if err != nil {
-        # panic(err.Error())
-        # }
-        # f.FixedBlocks[i] = block
+        # 產生加密用的block
+        f.FixedBlocks.append(numpy.random.randint(999999999, size=44))
+        f.FixedBlocks.append(numpy.random.randint(999999999, size=44))
 
     # Check if int is 32 or 64 bit
     x = numpy.uint64(1 << 32)
@@ -29,14 +25,10 @@ def ServerInitialize(prfKeys, numBits):
     f.NumBits = numBits
     for i in range(0, 4, 1):
         f.PrfKeys[i] = prfKeys[i]
+        # 產生加密用的block
+        f.FixedBlocks.append(numpy.random.randint(999999999, size=44))
+        f.FixedBlocks.append(numpy.random.randint(999999999, size=44))
 
-        # 以下註解是go語言 還沒改成python
-        # // 產生加密用的block
-        # block, err: = aes.NewCipher(f.PrfKeys[i])
-        # if err != nil {
-        # panic(err.Error())
-        # }
-        # f.FixedBlocks[i] = block
     # Check if int is 32 or 64 bit
     x = numpy.uint64(1 << 32)
     if numpy.uint(x) == 0:
@@ -47,7 +39,7 @@ def ServerInitialize(prfKeys, numBits):
     return f
 
 # 測試function功能是否pass
-a = ClientInitialize(4)
-print(a.PrfKeys)
-b = ServerInitialize(a.PrfKeys, 4)
-print(b.PrfKeys)
+# a = ClientInitialize(4)
+# print(a)
+# b = ServerInitialize(a.PrfKeys, 4)
+# print(b)
