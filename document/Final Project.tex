@@ -24,7 +24,7 @@
 
 \title{\huge 資訊安全 Final Project} % 設置標題，使用巨大字體
 \author{5105056013 吳嘉偉、5105056029 江青霞、5105056019 廖健智} % 設置作者
-\date{2017/05/19} % 設置日期，預設值為系統當天的日期。
+\date{2017/06/25} % 設置日期，預設值為系統當天的日期。
 \usepackage{titling}
 \setlength{\droptitle}{-8em} % 將標題移動至頁面的上面
 \usepackage{listings}
@@ -74,17 +74,35 @@ responses from the providers, she combines them to
 obtain the final answer to her original query.
 
 \subsubsection{Security Goals}
-The goal of Splinter is to hide sensitive
-parameters in a user’s query.Specifically, Splinter 
-lets users run parametrized queries, where both the 
-parameters and query results are hidden from 
-providers.
+The goal of Splinter is to hide sensitive 
+parameters in a user's query. Specifically, 
+Splinter lets users run parametrized queries, where 
+both the parameters and query results are hidden 
+from providers.
 
 Splinter supports a subset of the SQL language, 
 hides the information represented by the questions 
 marks and the query’s results, but the column names 
 being selected and filtered are not hidden.
 \subsubsection{Threat Model}
+Splinter keeps the parameters in the user’s query 
+hidden as long as at least one of the user-chosen 
+providers does not collude with others. Splinter 
+also assumes these providers are honest but 
+curious: a provider can observe the inter- actions 
+between itself and the client, but Splinter does 
+not protect against providers returning incorrect 
+results or maliciously modifying the dataset.
+
+It assume that the user communicates with each 
+provider through a secure channel (e.g., using 
+SSL), and that the user’s Splinter client is 
+uncompromised. The cryptographic assumptions are 
+standard. They only assume the existence of one-way 
+functions in our two-provider implementation. In 
+our implementation for multiple providers, the 
+security of Paillier encryption is also 
+assumed.
 
 \section{Case Studies}
 \section{Related Work}
@@ -92,14 +110,19 @@ being selected and filtered are not hidden.
 \section{Conclusion}
 
 \section{Reference}
-[1] E. Boyle, N. Gilboa, and Y. Ishai. Function 
+[1] Splinter: Practical Private Queries on Public 
+Data Frank Wang, Catherine Yun, Shafi Goldwasser, 
+Vinod Vaikuntanathan, Matei Zaharia† MIT CSAIL, 
+†Stanford InfoLab
+
+[2] E. Boyle, N. Gilboa, and Y. Ishai. Function 
 secret sharing. In Proceedings of the 34th Annual 
 International Confer- ence on the Theory and 
 Applications of Cryptographic Techniques 
 (EUROCRYPT), pages 337–367. Sofia, Bul- garia, Apr. 
 2015.
 
-[2] N. Gilboa and Y. Ishai. Distributed point 
+[3] N. Gilboa and Y. Ishai. Distributed point 
 functions and their applications. In Proceedings of 
 the 33rd Annual International Conference on the 
 Theory and Applications of Cryptographic Techniques 
@@ -109,11 +132,4 @@ May 2014.
 
 
 \end{multicols}
-
-
-
-
-
-
-
 \end{document}
