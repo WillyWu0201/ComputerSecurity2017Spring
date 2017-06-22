@@ -50,12 +50,27 @@ def prf(x, aesBlocks, numBlocks, temp, out ):
         #Encrypt(dst, src []byte)
         #aesBlocks[i].Encrypt(temp, x)   #still go    ####這行不確定
 
-        temp = SimpleCipher.encrypt(x,256)
 
+        temp= SimpleCipher.encrypt(x,256)
+
+        #print(temp)
+        #print(len(x))
+        #print(AES.block_size)
+
+        #print(len(out))
 
         # get AES_k[i](x) ^ x
-        for j in range(len(temp)):
-            out[i * AES.block_size + j] = temp[j] ^ x[j]
+        for j in range(16):
+            #XOR
+
+            #print('i'+str(i))
+            #print('j'+str(j))
+            #print('====')
+            #print(int(temp[j]) ^ int(x[j]))
+            #print('====')
+            out[i * AES.block_size + j] = int(temp[j]) ^ int(x[j])
+
+
 
     return x, aesBlocks, numBlocks, temp, out
 
@@ -80,14 +95,21 @@ def Padding(Input):
     return Input + (AES.block_size - len(Input) % AES.block_size) * chr(AES.block_size - len(Input) % AES.block_size)
 
 
+
+
+#=================  test data ==================
 #str = bytearray(b'12345678')
 #print(str[0])
 
-#aa = [0,0,0,0,0,0,0,0]
+#aa = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+#bb = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+#cc = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
-#for i in range(8):
+#for i in range(16):
     #aa[i] = str(i+54)
-
+    #bb[i] = str(i+54)
 
 #print(aa)
-#prf(aa,0,5,aa,3)
+#prf(aa,0,3,bb,cc)
+
+#print(cc)
