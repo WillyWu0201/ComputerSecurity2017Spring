@@ -40,6 +40,6 @@ def ServerInitialize(prfKeys, numBits):
 
 # 測試function功能是否pass
 # a = ClientInitialize(4)
-# print(a)
+# print(a.FixedBlocks)
 # b = ServerInitialize(a.PrfKeys, 4)
-# print(b)
+# print(b.FixedBlocks)

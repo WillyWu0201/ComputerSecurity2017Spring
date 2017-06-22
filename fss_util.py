@@ -1,14 +1,11 @@
 import binary
 import numpy
 from Crypto.Cipher import AES
-initPRFLen = 4
 
 import os
 import SimpleCipher
 
-from Crypto import Cipher
-#from Crypto import Random
-
+initPRFLen = 4
 
 def randomcryptoint():
 
