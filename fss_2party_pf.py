@@ -88,12 +88,6 @@ def generatetreepf(f, a, b):
 
 def evaluatepf(f, serverNum, k, x):
 
-    print("serverNum :", serverNum)
-    print("k:", k)
-    print("x:", x)
-
-    #
-    sCurr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     sCurr = k.SInit
     tCurr = k.TInit
 
@@ -116,20 +110,16 @@ def evaluatepf(f, serverNum, k, x):
 
         #Pick right seed expansion based on
         if xBit == 0 :
-            sCurr = f.Out[AES.block_size]
+            sCurr = f.Out[:AES.block_size]
             tCurr = f.Out[AES.block_size] % 2
 
         else :
             sCurr = f.Out[(AES.block_size+1):(AES.block_size*2+1)]
             tCurr = f.Out[AES.block_size*2+1] % 2
 
-    sFinal, _ = binary.Varint(sCurr[:8])
+    sFinal, _ = binary.varint(sCurr[:8])
 
     if serverNum == 0 :
         return int(sFinal) + int(tCurr) * k.FinalCW
     else :
         return -1 * (int(sFinal) + int(tCurr) * k.FinalCW)
-
-# f = fss()
-# a = generatetreepf(f, 5, 1)
-# print(a)

@@ -53,9 +53,3 @@ def ServerInitialize(prfKeys, numBits):
         f.N = 64
     f.M = 4
     return f
-
-# 測試function功能是否pass
-# a = ClientInitialize(4)
-# print(a.FixedBlocks)
-# b = ServerInitialize(a.PrfKeys, 4)
-# print(b.FixedBlocks)
