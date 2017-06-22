@@ -103,7 +103,8 @@ functions in our two-provider implementation. In
 our implementation for multiple providers, the 
 security of Paillier encryption is also 
 assumed.
-
+\subsection{Function Secret Sharing}
+Function Secret Sharing lets a client divide a function f into function shares f1, f2,..., fk so that multiple parties can help evaluate f without learning certain of its parameters.
 \section{Case Studies}
 \section{Related Work}
 \subsection{PIR(Private Information Retrieval ) 
@@ -154,6 +155,13 @@ Systems that compute on encrypted data, such as CryptDB [14], Mylar [15], SPORC 
 \subsection{ORAM(Oblivious RAM) systems}
 Splinter is also related to systems that use Oblivious RAM [19, 20]. ORAM allows a user to read and write data on an untrusted server without revealing her data access patterns to the server. However, ORAM cannot be easily applied into the Splinter setting. One main requirement of ORAM is that the user can only read data that she has written. In Splinter, the provider hosts a public dataset, not created by any specific user, and many users need to access the same dataset.
 \section{Experimental Result}
+Can Splinter be used practically for real applications?  
+
+Built and evaluated clones of three applications on Splinter: restaurant reviews, flight data, and map routing, using real datasets.
+Can support realistic applications including the search features of Yelp and flight search sites, and data structures required for map routing.
+Achieves end-to-end latencies below 1.6 sec for queries in these applications on realistic data.
+Use up to 10x fewer round trips than prior systems and have lower response times. 
+ 
 \section{Conclusion}
 Splinter is a new private query system that protects sensitive parameters in SQL-like queries while scaling to realistic applications. Splinter uses and extends a recent cryptography primitive, Function Secret Sharing (FSS), allowing it to achieve up to an order of magnitude better performance compared to previous private query systems. [1] Develop protocols to execute complex queries with low computation and bandwidth. As a proof of concept, it has evaluated Splinter with three sample applications—a Yelp clone, map routing, and flight search—and showed that Splinter has low response times from 50 ms to 1.6 seconds with low hosting costs.
 

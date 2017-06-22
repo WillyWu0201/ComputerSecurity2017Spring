@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.3.28)  23 JUN 2017 00:09
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.3.28)  23 JUN 2017 00:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1094,20 +1094,21 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
 Missing character: There is no ⇥ in font Georgia/OT:script=latn;language=DFLT;mapping=tex-text;!
-Missing character: There is no ⇥ in font Georgia/OT:script=latn;language=DFLT;mapping=tex-text;!
-Missing character: There is no ⇥ in font Georgia/OT:script=latn;language=DFLT;mapping=tex-text;!
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 156--156
+Missing character: There is no ⇥ in font Georgia/OT:script=latn;language=DFLT;mapping=tex-text;!
+Missing character: There is no ⇥ in font Georgia/OT:script=latn;language=DFLT;mapping=tex-text;!
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--157
 []\EU1/Georgia(0)/bx/n/14.4 ORAM(Oblivious RAM)
  []
 
 [3] [4]
-Overfull \hbox (9.04047pt too wide) in paragraph at lines 202--203
+Overfull \hbox (9.04047pt too wide) in paragraph at lines 210--211
 []\EU1/Georgia(0)/m/n/12 [14] R.A.Popa, C.M.S.Redfield, N.Zeldovich,
  []
 
 
-Overfull \hbox (15.3725pt too wide) in paragraph at lines 206--207
+Overfull \hbox (15.3725pt too wide) in paragraph at lines 214--215
 []\EU1/Georgia(0)/m/n/12 [16]A.J.Feldman, W.P.Zeller, M.J.Freedman,
  []
 
@@ -1115,7 +1116,7 @@ Overfull \hbox (15.3725pt too wide) in paragraph at lines 206--207
 Here is how much of TeX's memory you used:
  19473 strings out of 493591
  384277 string characters out of 6143546
- 390029 words of memory out of 5000000
+ 389029 words of memory out of 5000000
  22763 multiletter control sequences out of 15000+600000
  5083 words of font info for 47 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
