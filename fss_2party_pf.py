@@ -1,36 +1,34 @@
 import numpy
-import fss as f
 import fss_util
 import binary
 from Crypto.Cipher import AES
 
 
 class FssKeyEq2P:
-    SInit = numpy.zeros((1, 16), int)
+    SInit = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     TInit = 0
-    CW = numpy.zeros((4, 16), int)
+    CW = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
     FinalCW = 0
 
 
-def GenerateTreePF(a, b):
+def generatetreepf(f, a, b):
     fssKeys = []
     for i in range(0, 2, 1):
         fssKey = FssKeyEq2P()
         fssKeys.append(fssKey)
 
-    # 17 = AES block size + 1
     tempRand1 = numpy.random.randint(256, size=AES.block_size+1)
-    print(tempRand1)
+
     fssKeys[0].SInit = tempRand1[0:16]
     fssKeys[0].TInit = tempRand1[16] % 2
-    print(fssKeys[0].SInit)
-    print(fssKeys[0].TInit)
 
     fssKeys[1].SInit = numpy.random.randint(256, size=AES.block_size)
     fssKeys[1].TInit = fssKeys[0].TInit ^ 1
-
-    print(fssKeys[1].SInit)
-    print(fssKeys[1].TInit)
 
     sCurr0 = fssKeys[0].SInit
     sCurr1 = fssKeys[1].SInit
@@ -88,7 +86,7 @@ def GenerateTreePF(a, b):
     return fssKeys
 
 
-def evaluatepf(f, serverNum , k , x ) :
+def evaluatepf(f, serverNum, k, x):
 
     print("serverNum :", serverNum)
     print("k:", k)
@@ -132,3 +130,6 @@ def evaluatepf(f, serverNum , k , x ) :
     else :
         return -1 * (int(sFinal) + int(tCurr) * k.FinalCW)
 
+# f = fss()
+# a = generatetreepf(f, 5, 1)
+# print(a)

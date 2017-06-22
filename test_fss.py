@@ -9,7 +9,7 @@ fClient = fss_initialize.ClientInitialize(6)
 
 #Test with if x = 5, evaluate to 1
 
-fssKeys = fss_2party_pf.GenerateTreePF(fClient,5, 1)
+fssKeys = fss_2party_pf.generatetreepf(fClient,5, 1)
 
 #Simulate server
 
