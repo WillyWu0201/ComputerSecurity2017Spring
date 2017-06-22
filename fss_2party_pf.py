@@ -1,9 +1,10 @@
-import fss as f
+
 import fss_util
 import binary
 from Crypto.Cipher import AES
 
-def GenerateTreePF(a, b):
+#func (f Fss) GenerateTreePF(a, b uint) []FssKeyEq2P {
+def GenerateTreePF(f, a, b):
     a=0
     b=0
 
@@ -12,7 +13,7 @@ def GenerateTreePF(a, b):
 
 #func (f Fss) EvaluatePF(serverNum byte, k FssKeyEq2P, x uint) int {
 
-def evaluatepf(serverNum , k , x ) :
+def evaluatepf(f, serverNum , k , x ) :
 
 
     print("serverNum :", serverNum)
