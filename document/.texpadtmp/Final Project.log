@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.3.28)  23 JUN 2017 00:00
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.3.28)  23 JUN 2017 00:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1102,23 +1102,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--156
  []
 
 [3] [4]
-Overfull \hbox (93.29514pt too wide) in paragraph at lines 196--197
-[]\EU1/Georgia(0)/m/n/12 [11] S.Goldwasser.Multipartycomputations:pastandpresent.
+Overfull \hbox (9.04047pt too wide) in paragraph at lines 202--203
+[]\EU1/Georgia(0)/m/n/12 [14] R.A.Popa, C.M.S.Redfield, N.Zeldovich,
  []
 
 
-Overfull \hbox (69.98068pt too wide) in paragraph at lines 198--199
-[]\EU1/Georgia(0)/m/n/12 [12] M.Bellare,V.T.Hoang,S.Keelveedhi,andP.Rogaway.
- []
-
-
-Overfull \hbox (59.65082pt too wide) in paragraph at lines 202--203
-[]\EU1/Georgia(0)/m/n/12 [14] R.A.Popa,C.M.S.Redfield,N.Zeldovich,andH.Bal-
- []
-
-
-Overfull \hbox (78.08246pt too wide) in paragraph at lines 206--207
-[]\EU1/Georgia(0)/m/n/12 [16]A.J.Feldman,W.P.Zeller,M.J.Freedman,andE.W.Fel-
+Overfull \hbox (15.3725pt too wide) in paragraph at lines 206--207
+[]\EU1/Georgia(0)/m/n/12 [16]A.J.Feldman, W.P.Zeller, M.J.Freedman,
  []
 
 [5] [6] (/Users/bryant_liao/ComputerSecurity2017Spring/document/.texpadtmp/Final Project.aux) ) 
