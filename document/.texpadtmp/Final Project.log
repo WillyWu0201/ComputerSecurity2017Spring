@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.3.28)  23 JUN 2017 19:32
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.3.28)  23 JUN 2017 19:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1129,17 +1129,7 @@ LaTeX Font Warning: Font shape `EU1/LiHeiPro(0)/bx/n' undefined
 (Font)              using `EU1/LiHeiPro(0)/m/n' instead on input line 210.
 
 File: 程式截圖說明.png Graphic file (type QTm)
-<use  "程式截圖說明.png" > [5] [6]
-Overfull \hbox (9.04047pt too wide) in paragraph at lines 257--258
-[]\EU1/Georgia(0)/m/n/12 [14] R.A.Popa, C.M.S.Redfield, N.Zeldovich,
- []
-
-
-Overfull \hbox (15.3725pt too wide) in paragraph at lines 261--262
-[]\EU1/Georgia(0)/m/n/12 [16]A.J.Feldman, W.P.Zeller, M.J.Freedman,
- []
-
-[7] [8] (/Users/bryant_liao/ComputerSecurity2017Spring/document/.texpadtmp/Final Project.aux)
+<use  "程式截圖說明.png" > [5] [6] (/Users/bryant_liao/ComputerSecurity2017Spring/document/.texpadtmp/Final Project.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1151,6 +1141,6 @@ Here is how much of TeX's memory you used:
  22779 multiletter control sequences out of 15000+600000
  5083 words of font info for 47 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 48i,6n,72p,10389b,375s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,6n,72p,10389b,365s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/bryant_liao/ComputerSecurity2017Spring/document/.texpadtmp/Final Project.pdf (8 pages).
+Output written on /Users/bryant_liao/ComputerSecurity2017Spring/document/.texpadtmp/Final Project.pdf (6 pages).
