@@ -31,6 +31,7 @@
 \usepackage{multicol}
 \usepackage{color}
 \usepackage{wrapfig} %引入可以在多行架構的文章中插入圖片的套件
+\usepackage{graphicx} %package to manage images
 
 \begin{document}
 \clearpage
@@ -105,6 +106,13 @@ security of Paillier encryption is also
 assumed.
 \subsection{Function Secret Sharing}
 Function Secret Sharing lets a client divide a function f into function shares f1, f2,..., fk so that multiple parties can help evaluate f without learning certain of its parameters.
+
+%\includegraphics[scale=0.7]{Figure2.png}
+%\begin{wrapfigure}{l}{0.9\linewidth}
+%\includegraphics[width=\linewidth]{Figure2.png}
+%\caption{This is the Share\LaTeX{} logo}
+%\end{wrapfigure}
+
 \section{Case Studies}
 \subsection{Restaurant review site}
 We implement a restaurant review site using the Yelp academic dataset. The original dataset contains information for local businesses in 10 cities, but we duplicate the dataset 4 times so that it would approximately represent local businesses in 40 cities. We use the following columns in the data to perform many of the queries expressible on Yelp: name, stars, review count, category, neighborhood and location.For location-based queries, e.g., restaurants within 5 miles of a user’s current location, multiple interval conditions on the longitude and latitude would typically be used. To run these queries faster, we quantize the locations of each restaurant into overlapping hexagons of different radii (e.g., 1, 2 and 5 miles), following the scheme from. We precompute which hexagons each restaurant is in and expose these as additional columns in the data (e.g., hex1mi and hex2mi). This allows the location queries to use ‘=’ predicates instead of intervals.For this dataset, we present results for the following three queries:Q1: SELECT COUNT(*) WHERE category="Thai"Q2: SELECT TOP 10 restaurant    WHERE category="Mexican" AND    (hex2mi=1 OR hex2mi=2 OR hex2mi=3)    ORDER BY starsQ3: SELECT restaurant, MAX(stars)    WHERE category="Mexican" OR    category="Chinese" OR category="Indian"    OR category="Greek" OR category="Thai"    OR category="Japanese"    GROUP BY categoryQ1 is a count on the number of Thai restaurants. Q2 re- turns the top 10 Mexican restaurants within a 2 mile radius of a user-specified location by querying three hexagons. We assume that the provider caches the intermediate table for the Top 10 query as described in Section 5.2.3 because it is a common query. Finally, Q3 returns the best rated restaurant from a subset of categories. This requires more communication than other queries because it performs a MAX with many disjoint conditions, as described in Section 5.2.2. Although most queries will probably not have this many disjoint conditions, we test this query to show that Splinter’s protocol for this case is also practical.
@@ -174,6 +182,15 @@ Can support realistic applications including the search features of Yelp and fli
 Achieves end-to-end latencies below 1.6 sec for queries in these applications on realistic data.
 Use up to 10x fewer round trips than prior systems and have lower response times. 
  
+\section{Implementation} 
+\subsection{BinaryTree.jpg}
+\includegraphics[scale=0.15]{BinaryTree.jpg}
+\subsection{HowUserGetInfo}
+\includegraphics[scale=0.27]{HowUserGetInfo.png}
+\subsection{程式截圖說明.png}
+\includegraphics[scale=0.25]{程式截圖說明.png}
+
+
 \section{Conclusion}
 Splinter is a new private query system that protects sensitive parameters in SQL-like queries while scaling to realistic applications. Splinter uses and extends a recent cryptography primitive, Function Secret Sharing (FSS), allowing it to achieve up to an order of magnitude better performance compared to previous private query systems. [1] Develop protocols to execute complex queries with low computation and bandwidth. As a proof of concept, it has evaluated Splinter with three sample applications—a Yelp clone, map routing, and flight search—and showed that Splinter has low response times from 50 ms to 1.6 seconds with low hosting costs.
 
