@@ -14,7 +14,7 @@ def decrypt(x,l):
         y[i] = l - 1 - int(x[i])
     return y
 
-'''
+
 aa = [0,0,0,0,0,0,0,0]
 
 for i in range(8):
@@ -23,4 +23,3 @@ for i in range(8):
 
 # 0-255
 print(encrypt(aa,256))
-'''
